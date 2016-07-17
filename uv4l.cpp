@@ -20,7 +20,7 @@
  * It creates to a unix domain socket of type SOCK_SEQPACKET specified by
  * command line, listens to it waiting for incoming messages from clients
  * (e.g. UV4L) and replies the received messages back to the senders.
- *
+ *t
  * Example:
  *     $ ./datachannel_server /tmp/uv4l.socket
  *
