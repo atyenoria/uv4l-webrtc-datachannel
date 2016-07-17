@@ -3,9 +3,17 @@ clang++ -lpthread -lboost_system -lboost_chrono asio1.cpp -o asio1
 clang++ -std=c++11  -lboost_system  -lboost_coroutine uv4l.cpp -o uv4l
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt  && ./a.out
 
+
+- asio daytime
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt daytime-client.cpp -o daytime-client
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt daytime-server.cpp -o daytime-server
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt daytime-server-async.cpp -o daytime-server-async
+
+
+- asio chat
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt chat_client.cpp -o chat_client
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt chat_server.cpp -o chat_server
+
 
 
 
