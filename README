@@ -14,8 +14,11 @@ clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt daytime-
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt chat_client.cpp -o chat_client
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt chat_server.cpp -o chat_server
 
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt server.cpp -o server
 
 
+- asio spawn
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt echo_server.cpp -o echo_server
 
 - asio
 http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html
@@ -23,8 +26,27 @@ http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html
 - asio async desc
 http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/tutorial/tutdaytime3.html
 
+- asio spawn
+http://www.boost.org/doc/libs/1_54_0/doc/html/boost_asio/example/cpp11/spawn/echo_server.cpp
+
 - thread
 http://www.boost.org/doc/libs/1_61_0/doc/html/thread.html
 
 - coroutine
 http://www.boost.org/doc/libs/1_61_0/libs/coroutine/doc/html/index.html
+http://www.boost.org/doc/libs/1_61_0/libs/coroutine/doc/html/coroutine/intro.html
+
+- stackful coroutine
+http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio/overview/core/spawn.html
+
+- How do stackless coroutines differ from stackful coroutines?
+http://stackoverflow.com/questions/28977302/how-do-stackless-coroutines-differ-from-stackful-coroutines
+
+- Preemption
+https://en.wikipedia.org/wiki/Preemption_(computing)
+
+- recv (MSG_WAITALL)
+http://linux.die.net/man/2/recv
+
+- send
+http://linux.die.net/man/2/send
