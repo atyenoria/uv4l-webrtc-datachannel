@@ -1,6 +1,19 @@
+## compile
 clang++ -lboost_regex regx.cpp
 clang++ -lpthread -lboost_system -lboost_chrono asio1.cpp -o asio1
+
+- uv4l on mac
 clang++ -std=c++11  -lboost_system  -lboost_coroutine uv4l.cpp -o uv4l
+clang++ -std=c++11  -lboost_system  -lboost_coroutine uv4l-server.cpp -o uv4l-server
+
+- uv4l on linux
+g++ -std=c++11 -I"/usr/include/boost"  uv4l.cpp -o uv4l -lboost_system  -lboost_coroutine
+g++ -std=c++11 -I"/usr/include/boost"  uv4l-server.cpp -o uv4l-server -lboost_system  -lboost_coroutine
+
+
+g++ -std=c++11  -lboost_system  -lboost_coroutine uv4l.cpp -o uv4l
+
+g++ -std=c++11 -I"/usr/include/boost"  uv4l.cpp -o uv4l -lboost_system  -lboost_coroutine
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt  && ./a.out
 
 
@@ -20,6 +33,15 @@ clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt server.c
 - asio spawn
 clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt echo_server.cpp -o echo_server
 
+- asio unix
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt stream_client.cpp -o stream_client
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt stream_server.cpp -o stream_server
+clang++ -std=c++11  -lboost_system  -lboost_coroutine -lboost_thread-mt connect_pair.cpp -o connect_pair
+
+
+
+
+## references
 - asio
 http://www.boost.org/doc/libs/1_61_0/doc/html/boost_asio.html
 
@@ -50,3 +72,22 @@ http://linux.die.net/man/2/recv
 
 - send
 http://linux.die.net/man/2/send
+
+- What does the explicit keyword in C++ mean?
+http://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-in-c-mean
+
+- Unix socket, SOCK_SEQPACKET vs SOCK_DGRAM
+http://stackoverflow.com/questions/10104082/unix-socket-sock-seqpacket-vs-sock-dgram
+
+The difference is two-fold:
+
+Difference #1 - SOCK_SEQPACKET handles backpressure by tossing out the offending packet and returning an error to the sending socket, whereas SOCK_STREAM tosses out the offending packet, then asks for it to be retransmitted when the buffer has space. This makes SOCK_SEQPACKET potentially more efficient in that the sender can reduce the outgoing data rate to reduce dropped packets.
+
+Difference #2 - SOCK_STREAM is supported by windows and all major versions of linux SOCK_SEQPACKET is only supported by a subset of fairly arcane builds of linux AFAIK.
+
+- What's the difference between streams and datagrams in network programming?
+http://stackoverflow.com/questions/4688855/whats-the-difference-between-streams-and-datagrams-in-network-programming
+
+
+
+
